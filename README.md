@@ -1,2 +1,25 @@
-# 오픈소스SW개론 프로젝트
-기획 : https://docs.google.com/document/d/1cAolDsQotU9P829415cyhQjbpwWISYBV3hzkoRfZgc8/edit?tab=t.0
+# Project Title 
+A breif description of what this project does and who it's for.
+
+<http://logo_link>
+
+### Badges
+
+Include some badges such as build status, test coverage, etc.
+
+<http://badge_link>
+
+### Features
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+
+----
+### Installation
+```
+git clone https://github.com/username/projectname.git
+cd projectname
+pip install requirements.txt
+```
