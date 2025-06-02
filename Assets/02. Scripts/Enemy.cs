@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,8 +11,6 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spritetrenderer;
     Transform target;
     bool isAttacking = false;
-    public string stateName = "Run";
-    public int lastLoopCount = 0;
 
     void Start()
     {
@@ -19,6 +18,14 @@ public class Enemy : MonoBehaviour
         spritetrenderer = GetComponent<SpriteRenderer>();
         animator.SetTrigger("Run");
         target = GameObject.FindGameObjectWithTag("base").transform;
+        if(target.position.x - transform.position.x < 0)
+        {
+            spritetrenderer.flipX = true; // Face left
+        }
+        else
+        {
+            spritetrenderer.flipX = false; // Face right
+        }
     }
     void Update()
     {
@@ -26,31 +33,16 @@ public class Enemy : MonoBehaviour
         {
             MoveTowardsTarget();
         }
-
-        if (isAttacking)
-        {
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-
-            if (stateInfo.IsName(stateName))
-            {
-                int currentLoopCount = Mathf.FloorToInt(stateInfo.normalizedTime);
-                if (currentLoopCount > lastLoopCount)
-                {
-                    lastLoopCount = currentLoopCount;
-                    DoDamage();
-                }
-            }
-        }
     }
     void MoveTowardsTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, target.position) <= attackRange)
-        {
-            Attack();
-        }
+        // if (Vector3.Distance(transform.position, target.position) <= attackRange)
+        // {
+        //     Attack();
+        // }
     }
     void Attack()
     {
@@ -95,6 +87,13 @@ public class Enemy : MonoBehaviour
         if (HP <= 0)
         {
             Die();
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("base"))
+        {
+            Attack();
         }
     }
     void Die()
