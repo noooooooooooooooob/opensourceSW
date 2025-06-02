@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 3a2188d462041f1489fb4672aae56c07, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bfeff6a4bd3475f438f0a4259e5cda89, type: 2}
     - target: {fileID: 7878350319992209165, guid: 3a2188d462041f1489fb4672aae56c07, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.3
@@ -82,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   damage: 10
-  speed: 10
+  speed: 5
   attackRange: 1
   stateName: Run
   lastLoopCount: 0
@@ -116,7 +120,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
