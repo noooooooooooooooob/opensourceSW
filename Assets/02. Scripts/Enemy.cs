@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     bool isAttacking = false;
     public string stateName = "Run";
     public int lastLoopCount = 0;
+    bool isSlowed = false;
+    float slowEndTime = 0f;
 
     void Start()
     {
@@ -26,7 +28,13 @@ public class Enemy : MonoBehaviour
         {
             MoveTowardsTarget();
         }
+        if (isSlowed && Time.time > slowEndTime)
+        {
+            speed *= 2.0f;
+            isSlowed = false;
 
+            Debug.Log("[Enemy] 皑加 秦力凳");
+        }
         if (isAttacking)
         {
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -89,6 +97,22 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    public void ApplySlow(float slowFactor, float duration)
+    {
+        if (!isSlowed)
+        {
+            speed *= slowFactor;
+            slowEndTime = Time.time + duration;
+            isSlowed = true;
+
+            Debug.Log($"[Enemy] 皑加 利侩凳: factor={slowFactor}, duration={duration}");
+        }
+        else
+        {
+            slowEndTime = Mathf.Max(slowEndTime, Time.time + duration);
+        }
+    }
+
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
