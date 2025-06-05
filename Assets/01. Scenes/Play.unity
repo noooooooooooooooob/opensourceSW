@@ -311,6 +311,55 @@ MonoBehaviour:
   yMin: -20
   yMax: 20
   cameraMoveSpeed: 12
+--- !u!1 &731396447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731396449}
+  - component: {fileID: 731396448}
+  m_Layer: 0
+  m_Name: spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &731396448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731396447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9e505413ad8ff489ccb9e348be2b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnTime: 5
+  enemyPrefabs:
+  - {fileID: 7233600634000608133, guid: 33f6e9503d311514989764b52bd18831, type: 3}
+  spawnPoints:
+  - {fileID: 416657545}
+--- !u!4 &731396449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731396447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &858424481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,13 +372,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: e5b68670b5c78a141af4fddac833204f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e5b68670b5c78a141af4fddac833204f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e5b68670b5c78a141af4fddac833204f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.77
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e5b68670b5c78a141af4fddac833204f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -378,9 +431,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1753475631}
   - component: {fileID: 1753475630}
+  - component: {fileID: 1753475632}
+  - component: {fileID: 1753475633}
   m_Layer: 0
   m_Name: Castle_Blue
-  m_TagString: Untagged
+  m_TagString: base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,6 +510,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753475632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753475629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e3dfb724831b24285df7d9d4f612fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  hpBar: {fileID: 0}
+--- !u!114 &1753475633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753475629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebb903b3d12f4e47a3c514f18469a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill3Prefab: {fileID: 0}
+  skill4Prefab: {fileID: 1113535377687435702, guid: fcd7c9b8a682b914f9986d23c35fd8db, type: 3}
 --- !u!1 &1982032552
 GameObject:
   m_ObjectHideFlags: 0
@@ -7447,3 +7530,4 @@ SceneRoots:
   - {fileID: 1753475631}
   - {fileID: 858424481}
   - {fileID: 416657545}
+  - {fileID: 731396449}
