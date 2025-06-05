@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         spritetrenderer = GetComponent<SpriteRenderer>();
         animator.SetTrigger("Run");
+        print("Run!!\n");
         target = GameObject.FindGameObjectWithTag("base").transform;
     }
     void Update()
@@ -74,7 +75,7 @@ public class Enemy : MonoBehaviour
             spritetrenderer.flipX = true; // Face left
             animator.SetTrigger("Attack");
         }
-
+        print("Attack!!\n");
         isAttacking = true;
     }
     public void DoDamage()
